@@ -1,6 +1,6 @@
 # CMDB-CVE MCP Server
 
-A **Model Context Protocol (MCP) server** for vulnerability intelligence automation with Agentic AI. This system combines a Configuration Management Database (CMDB) with real-time CVE ingestion from NIST NVD and leverages **LLM-driven reasoning** for vulnerability correlation.
+A **Model Context Protocol (MCP) server** for vulnerability intelligence automation with Agentic AI. This system combines a Configuration Management Database (CMDB) with real-time CVE ingestion from NIST NVD and leverages **LLM-driven reasoning** for vulnerability correlation followed by Nessus scan to validate the issue.
 
 ---
 
@@ -11,6 +11,7 @@ This MCP server enables an AI agent (e.g., Claude Desktop) to:
 * Query a **read-only CMDB** (asset inventory)
 * Fetch recent **CVE data from NVD** via the official REST API
 * Perform **LLM-driven, version-aware correlation** between CVEs and assets
+* Perform Nessus scan for the particular asset and CVE plugin
 * Generate and send **structured, explainable vulnerability reports** via email
 
 ---
@@ -21,8 +22,9 @@ This MCP server enables an AI agent (e.g., Claude Desktop) to:
 2. Fetch CVEs from NVD
 3. Pre-process and analyze CVEs + assets
 4. LLM performs version-aware correlation
-5. Generate structured vulnerability findings
-6. Send report via email
+5. Call Nessus to validate the vulnerability present
+6. Generate structured vulnerability findings
+7. Send report via email
 
 ---
 
